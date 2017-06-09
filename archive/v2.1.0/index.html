@@ -65,24 +65,24 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="funfix">Funfix</h1>
-				<p><img src="https://funfix.org/public/logo.png" width="100" align="right" style="float:right; display: block; width:100px;" /></p>
-				<p><a href="https://travis-ci.org/alexandru/funfix"><img src="https://img.shields.io/travis/alexandru/funfix.svg" alt="Travis"></a>
-				<a href="https://coveralls.io/github/alexandru/funfix?branch=master"><img src="https://coveralls.io/repos/github/alexandru/funfix/badge.svg?branch=master" alt="Coverage Status"></a></p>
-				<p>Funfix is a library of data types for functional and asynchronous
-				programming in Javascript.</p>
+				<p>Library of data types for functional and asynchronous programming in Javascript.</p>
 				<p>Inspired by <a href="http://www.scala-lang.org/">Scala</a>, <a href="http://typelevel.org/cats/">Cats</a>
 				and <a href="https://monix.io/">Monix</a>.</p>
 				<h2 id="usage">Usage</h2>
+				<p>For adding the dependency to <code>package.json</code>:</p>
 				<pre><code>npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save funfix</span>
-</code></pre><p>See <a href="https://funfix.org">API Docs</a>.</p>
-				<h2 id="recommended-companions">Recommended Companions</h2>
-				<p>Projects for usage in combination with Funfix:</p>
-				<ul>
-					<li><a href="https://facebook.github.io/immutable-js/">Immutable.js</a>:
-					a library exposing immutable collections, by Facebook</li>
-					<li><a href="https://jsverify.github.io/">JSVerify</a>:
-					property based testing</li>
-				</ul>
+</code></pre><p>Usage sample:</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> ff <span class="hljs-keyword">from</span> <span class="hljs-string">'funfix'</span>
+
+<span class="hljs-keyword">const</span> opt = ff.Option.of(<span class="hljs-string">"hello"</span>)
+</code></pre>
+				<p>À la carte imports:</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Option } <span class="hljs-keyword">from</span> <span class="hljs-string">'funfix/dist/core/option'</span>
+
+<span class="hljs-keyword">const</span> opt = Option.of(<span class="hljs-string">"hello"</span>)
+</code></pre>
+				<p>Note that these source files are not compiled for ES3 / ES5, so
+				they only work with a toolchain that recognizes ES2016 syntax.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

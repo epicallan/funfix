@@ -90,7 +90,7 @@
 }
 
 <span class="hljs-keyword">const</span> result = tryParseInt(<span class="hljs-string">"not an int"</span>)
-<span class="hljs-keyword">if</span> (result.isRight) {
+<span class="hljs-keyword">if</span> (result.isRight()) {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Increment: <span class="hljs-subst">${result.get}</span>`</span>)
 } <span class="hljs-keyword">else</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`ERROR: could not parse <span class="hljs-subst">${result.swap.get}</span>`</span>)
@@ -185,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L57">core/either.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L57">core/either.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -213,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Right<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L55">core/either.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L55">core/either.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">_left<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">A</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L57">core/either.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L57">core/either.ts:57</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">_right<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">B</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L56">core/either.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L56">core/either.ts:56</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +250,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L122">core/either.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L122">core/either.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -288,7 +288,7 @@ Either.left(<span class="hljs-string">"something"</span>).contains(<span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L299">core/either.ts:299</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L299">core/either.ts:299</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -311,7 +311,7 @@ Either.left(<span class="hljs-string">"something"</span>).contains(<span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L141">core/either.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L141">core/either.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -367,7 +367,7 @@ Either.left(<span class="hljs-number">10</span>).exists(<span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L164">core/either.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L164">core/either.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -442,7 +442,7 @@ Either.left(<span class="hljs-number">7</span>).filterOrElse(<span class="hljs-f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L176">core/either.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L176">core/either.ts:176</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +496,7 @@ Either.left(<span class="hljs-number">7</span>).filterOrElse(<span class="hljs-f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L195">core/either.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L195">core/either.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -579,7 +579,7 @@ Either.left(<span class="hljs-number">7</span>).filterOrElse(<span class="hljs-f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L215">core/either.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L215">core/either.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -636,7 +636,7 @@ Either.right(<span class="hljs-number">7</span>).forAll(<span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L269">core/either.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L269">core/either.ts:269</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -686,7 +686,7 @@ Either.left(<span class="hljs-number">10</span>).forAll(<span class="hljs-built_
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L228">core/either.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L228">core/either.ts:228</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -718,7 +718,7 @@ Either.left(<span class="hljs-number">10</span>).getOrElse(<span class="hljs-num
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L241">core/either.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L241">core/either.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -763,7 +763,7 @@ Either.left(<span class="hljs-number">10</span>).getOrElseL(<span class="hljs-fu
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_core_equals_.iequals.html">IEquals</a>.<a href="../interfaces/_core_equals_.iequals.html#hashcode">hashCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L307">core/either.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L307">core/either.ts:307</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -780,7 +780,7 @@ Either.left(<span class="hljs-number">10</span>).getOrElseL(<span class="hljs-fu
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L73">core/either.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L73">core/either.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -805,7 +805,7 @@ Either.right(<span class="hljs-number">10</span>).isLeft() <span class="hljs-com
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L94">core/either.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L94">core/either.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -830,7 +830,7 @@ Either.right(<span class="hljs-number">10</span>).isRight() <span class="hljs-co
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L81">core/either.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L81">core/either.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -858,7 +858,7 @@ Either.right(<span class="hljs-number">10</span>).isRight() <span class="hljs-co
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L254">core/either.ts:254</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L254">core/either.ts:254</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -914,7 +914,7 @@ Either.left(<span class="hljs-number">10</span>).map(<span class="hljs-function"
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L102">core/either.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L102">core/either.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -942,7 +942,7 @@ Either.left(<span class="hljs-number">10</span>).map(<span class="hljs-function"
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L282">core/either.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L282">core/either.ts:282</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -968,7 +968,7 @@ Either.left(<span class="hljs-number">20</span>).swap()  <span class="hljs-comme
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L292">core/either.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L292">core/either.ts:292</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -991,7 +991,7 @@ Either.left(<span class="hljs-number">20</span>).swap()  <span class="hljs-comme
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L313">core/either.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L313">core/either.ts:313</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1020,7 +1020,7 @@ Either.left(<span class="hljs-number">20</span>).swap()  <span class="hljs-comme
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/040cbe5/src/core/either.ts#L317">core/either.ts:317</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/d17f273/src/core/either.ts#L317">core/either.ts:317</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
