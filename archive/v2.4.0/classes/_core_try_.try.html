@@ -83,12 +83,16 @@
 					the places that an exception might occur.</p>
 					<p>Example:</p>
 					<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">divide</span>(<span class="hljs-params">dividendS: <span class="hljs-built_in">string</span>, divisorS: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>{
-  <span class="hljs-keyword">const</span> dividend = Try(<span class="hljs-built_in">parseInt</span>(dividendS)).filter(_ =&gt; _ === _)
-  <span class="hljs-keyword">const</span> divisor = Try(<span class="hljs-built_in">parseInt</span>(divisorS)).filter(_ =&gt; _ === _)
+  <span class="hljs-keyword">const</span> dividend = Try(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(dividendS))
+    .filter(_ =&gt; _ === _) <span class="hljs-comment">// filter out NaN</span>
+  <span class="hljs-keyword">const</span> divisor = Try(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(divisorS))
+    .filter(_ =&gt; _ === _)  <span class="hljs-comment">// filter out NaN</span>
 
   <span class="hljs-comment">// map2 executes the given function only if both results are</span>
   <span class="hljs-comment">// successful; we could also express this with flatMap / chain</span>
-  <span class="hljs-keyword">const</span> result = Try.map2(dividend, divisor, <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a / b)
+  <span class="hljs-keyword">const</span> result = Try.map2(dividend, divisor,
+    <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a / b
+  )
 
   result.fold(
     <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-string">`failure: <span class="hljs-subst">${error}</span>`</span>
@@ -205,7 +209,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L71">core/try.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L75">core/try.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -233,7 +237,7 @@
 					<div class="tsd-signature tsd-kind-icon">_failure<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L71">core/try.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L75">core/try.ts:75</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Success<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L69">core/try.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L73">core/try.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">_success<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">A</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L70">core/try.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L74">core/try.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +274,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L241">core/try.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L245">core/try.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -322,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L360">core/try.ts:360</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L364">core/try.ts:364</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -345,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L171">core/try.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L175">core/try.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L204">core/try.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L208">core/try.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -421,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L231">core/try.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L235">core/try.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -481,7 +485,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L192">core/try.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L196">core/try.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L269">core/try.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L273">core/try.ts:273</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -611,7 +615,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L101">core/try.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L105">core/try.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -637,7 +641,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L115">core/try.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L119">core/try.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -669,7 +673,7 @@ Failure.of(<span class="hljs-string">"error"</span>).getOrElse(<span class="hljs
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L128">core/try.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L132">core/try.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -714,7 +718,7 @@ Failure.of(<span class="hljs-string">"error"</span>).getOrElseL(<span class="hlj
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_core_std_.iequals.html">IEquals</a>.<a href="../interfaces/_core_std_.iequals.html#hashcode">hashCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L369">core/try.ts:369</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L373">core/try.ts:373</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -731,7 +735,7 @@ Failure.of(<span class="hljs-string">"error"</span>).getOrElseL(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L90">core/try.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L94">core/try.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -754,7 +758,7 @@ Failure.of(<span class="hljs-string">"error"</span>).getOrElseL(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L84">core/try.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L88">core/try.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -777,7 +781,7 @@ Failure.of(<span class="hljs-string">"error"</span>).getOrElseL(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L259">core/try.ts:259</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L263">core/try.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -839,7 +843,7 @@ Failure.of(<span class="hljs-string">"error"</span>).getOrElseL(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L161">core/try.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L165">core/try.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -871,7 +875,7 @@ Failure.of(<span class="hljs-string">"error"</span>).orElse(Success.of(<span cla
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L147">core/try.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L151">core/try.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -903,7 +907,7 @@ Failure.of(<span class="hljs-string">"error"</span>).orNull() <span class="hljs-
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L293">core/try.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L297">core/try.ts:297</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -962,7 +966,7 @@ it still returns it <span class="hljs-keyword">as</span> a <span class="hljs-str
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L317">core/try.ts:317</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L321">core/try.ts:321</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1021,7 +1025,7 @@ it still returns it <span class="hljs-keyword">as</span> a <span class="hljs-str
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L353">core/try.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L357">core/try.ts:357</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1049,7 +1053,7 @@ Failure.of(<span class="hljs-string">"error"</span>).toEither() <span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L337">core/try.ts:337</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L341">core/try.ts:341</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1077,7 +1081,7 @@ Failure.of(<span class="hljs-string">"error"</span>).toOption() <span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L405">core/try.ts:405</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L409">core/try.ts:409</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1112,7 +1116,7 @@ Failure.of(<span class="hljs-string">"error"</span>).toOption() <span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L428">core/try.ts:428</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L432">core/try.ts:432</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1192,7 +1196,7 @@ Try.map2(Success.of(<span class="hljs-number">1</span>), Failure.of(<span class=
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L465">core/try.ts:465</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L469">core/try.ts:469</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1288,7 +1292,7 @@ Try.map3(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L508">core/try.ts:508</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L512">core/try.ts:512</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1394,7 +1398,7 @@ Try.map3(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L560">core/try.ts:560</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L564">core/try.ts:564</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1516,7 +1520,7 @@ Try.map5(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L616">core/try.ts:616</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L620">core/try.ts:620</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1649,7 +1653,7 @@ Try.map6(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L380">core/try.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L384">core/try.ts:384</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1697,7 +1701,7 @@ Try.map6(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L389">core/try.ts:389</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L393">core/try.ts:393</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1731,7 +1735,7 @@ Try.map6(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/4a39e74/src/core/try.ts#L397">core/try.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/535d9d2/src/core/try.ts#L401">core/try.ts:401</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

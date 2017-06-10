@@ -72,9 +72,15 @@
 				<p>For adding the dependency to <code>package.json</code>:</p>
 				<pre><code>npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save funfix</span>
 </code></pre><p>Usage sample:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> ff <span class="hljs-keyword">from</span> <span class="hljs-string">'funfix'</span>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Try, Option, Either} <span class="hljs-keyword">from</span> <span class="hljs-string">'funfix'</span>
 
-<span class="hljs-keyword">const</span> opt = ff.Option.of(<span class="hljs-string">"hello"</span>)
+<span class="hljs-keyword">const</span> opt1 = Option.of(<span class="hljs-string">"hello"</span>)
+<span class="hljs-keyword">const</span> opt2 = Try.of(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">"world"</span>).toOption()
+
+<span class="hljs-keyword">const</span> greeting = 
+  Option.map2(opt1, opt2, <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + <span class="hljs-string">" "</span> + b)
+
+<span class="hljs-built_in">console</span>.log(greeting.getOrElse(<span class="hljs-string">"Ooops!"</span>))
 </code></pre>
 				<p>The library has been compiled using
 					<a href="https://github.com/umdjs/umd">UMD (Universal Module Definition)</a>,
