@@ -77,7 +77,7 @@
 <span class="hljs-keyword">const</span> opt1 = Option.of(<span class="hljs-string">"hello"</span>)
 <span class="hljs-keyword">const</span> opt2 = Try.of(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">"world"</span>).toOption()
 
-<span class="hljs-keyword">const</span> greeting = 
+<span class="hljs-keyword">const</span> greeting =
   Option.map2(opt1, opt2, <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + <span class="hljs-string">" "</span> + b)
 
 <span class="hljs-built_in">console</span>.log(greeting.getOrElse(<span class="hljs-string">"Ooops!"</span>))
@@ -85,7 +85,7 @@
 				<p>The library has been compiled using
 					<a href="https://github.com/umdjs/umd">UMD (Universal Module Definition)</a>,
 					so it should work with <a href="http://requirejs.org/docs/commonjs.html">CommonJS</a>
-				and <a href="http://requirejs.org/docs/whyamd.html">AMD</a>. </p>
+				and <a href="http://requirejs.org/docs/whyamd.html">AMD</a>.</p>
 				<p>À la carte imports using
 					<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/import">ECMAScript 2015 modules</a>
 				is also possible:</p>
@@ -95,6 +95,15 @@
 </code></pre>
 				<p>Note that these à la carte imports (that you have to import from <code>dist</code>)
 				only work with a toolchain that recognizes ES2015 modules.</p>
+				<h2 id="typescript-flow-support">Typescript, Flow support</h2>
+				<p>Funfix supports both <a href="https://www.typescriptlang.org/">Typescript</a>
+					and <a href="https://flow.org/">Flow</a> out of the box, being packaged with
+				all necessary declaration files.</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Try } <span class="hljs-keyword">from</span> <span class="hljs-string">'funfix'</span>
+
+<span class="hljs-keyword">const</span> email: ?<span class="hljs-built_in">string</span> =
+  Try.of(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> users[<span class="hljs-number">0</span>].profile.email).orNull()
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
