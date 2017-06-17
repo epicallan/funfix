@@ -96,6 +96,25 @@
 						<code>Eval</code> instances whose computation involves calling <code>get()</code> on
 						another <code>Eval</code> instance -- this can defeat the trampolining and
 					lead to stack overflows.</p>
+					<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> rndInt = Eval.of(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> nr = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">1000000</span>
+  <span class="hljs-keyword">return</span> nr &amp; nr
+})
+
+<span class="hljs-keyword">const</span> evenInt = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+  rndInt.flatMap(<span class="hljs-function"><span class="hljs-params">int</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
+      <span class="hljs-keyword">return</span> Eval.now(i)
+    <span class="hljs-keyword">else</span> <span class="hljs-comment">// Retry until we have an even number!</span>
+      <span class="hljs-keyword">return</span> evenInt()
+  })
+
+<span class="hljs-keyword">const</span> cached = evenInt().memoize()
+
+<span class="hljs-comment">// Nothing happens until now, this triggers the</span>
+<span class="hljs-comment">// actual evaluation:</span>
+<span class="hljs-keyword">const</span> n: <span class="hljs-built_in">number</span> = cached.get()
+</code></pre>
 					<p>This type is inspired by <code>cats.Eval</code> from
 						<a href="http://typelevel.org/cats/" class="external">Typelevel Cats</a>
 						and by <code>monix.eval.Coeval</code> from <a href="https://monix.io" class="external">Monix</a>.
@@ -190,7 +209,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L168">effect/eval.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L189">effect/eval.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L161">effect/eval.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L182">effect/eval.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -309,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L293">effect/eval.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L314">effect/eval.ts:314</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +377,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L282">effect/eval.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L303">effect/eval.ts:303</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L75">effect/eval.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L96">effect/eval.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -438,7 +457,7 @@ ref2.get() <span class="hljs-comment">// throws "error"</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L106">effect/eval.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L127">effect/eval.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -475,7 +494,7 @@ ref2.getOrElse(<span class="hljs-number">0</span>) <span class="hljs-comment">//
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L125">effect/eval.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L146">effect/eval.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -524,7 +543,7 @@ ref2.getOrElseL(<span class="hljs-function"><span class="hljs-params">()</span> 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L137">effect/eval.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L158">effect/eval.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -579,7 +598,7 @@ ref2.getOrElseL(<span class="hljs-function"><span class="hljs-params">()</span> 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L243">effect/eval.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L264">effect/eval.ts:264</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -607,7 +626,7 @@ ref2.getOrElseL(<span class="hljs-function"><span class="hljs-params">()</span> 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L264">effect/eval.ts:264</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L285">effect/eval.ts:285</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -635,7 +654,7 @@ ref2.getOrElseL(<span class="hljs-function"><span class="hljs-params">()</span> 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L216">effect/eval.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L237">effect/eval.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -685,7 +704,7 @@ ref2.getOrElseL(<span class="hljs-function"><span class="hljs-params">()</span> 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L228">effect/eval.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L249">effect/eval.ts:249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -735,7 +754,7 @@ ref2.getOrElseL(<span class="hljs-function"><span class="hljs-params">()</span> 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L89">effect/eval.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L110">effect/eval.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -764,7 +783,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L183">effect/eval.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L204">effect/eval.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -844,7 +863,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L202">effect/eval.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L223">effect/eval.ts:223</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -925,7 +944,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L330">effect/eval.ts:330</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L351">effect/eval.ts:351</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -974,7 +993,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L363">effect/eval.ts:363</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L384">effect/eval.ts:384</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1022,7 +1041,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L315">effect/eval.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L336">effect/eval.ts:336</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1057,7 +1076,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L300">effect/eval.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L321">effect/eval.ts:321</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1103,7 +1122,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L345">effect/eval.ts:345</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L366">effect/eval.ts:366</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1154,7 +1173,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L309">effect/eval.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L330">effect/eval.ts:330</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1189,7 +1208,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L321">effect/eval.ts:321</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L342">effect/eval.ts:342</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1218,7 +1237,7 @@ ref2.run() <span class="hljs-comment">// Failure("error")</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/210543e/src/effect/eval.ts#L353">effect/eval.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/alexandru/funfix/blob/afabbeb/src/effect/eval.ts#L374">effect/eval.ts:374</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
