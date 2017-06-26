@@ -77,5 +77,6 @@ Low-level data types and utilities:
 - [TimeUnit and Duration](./modules/exec_time.html) for
   expressing timespans, along operations and conversions between time units
 - [[Scheduler]] for scheduling units of work for asynchronous execution
+  (also see [[TestScheduler]] for simulating async execution and delays in tests)
 
 More is coming (e.g. `Task`, etc)
