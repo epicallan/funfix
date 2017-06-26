@@ -924,26 +924,8 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a href="exec_scheduler.testscheduler.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="exec_scheduler.testscheduler.html#_clock" class="tsd-kind-icon">_clock</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="exec_scheduler.testscheduler.html#_reporter" class="tsd-kind-icon">_reporter</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="exec_scheduler.testscheduler.html#_tasks" class="tsd-kind-icon">_tasks</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="exec_scheduler.testscheduler.html#_taskssearch" class="tsd-kind-icon">_tasks<wbr>Search</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a href="exec_scheduler.testscheduler.html#_triggeredfailures" class="tsd-kind-icon">_triggered<wbr>Failures</a>
-				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a href="exec_scheduler.testscheduler.html#executionmodel" class="tsd-kind-icon">execution<wbr>Model</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a href="exec_scheduler.testscheduler.html#_updatetasks" class="tsd-kind-icon">_update<wbr>Tasks</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a href="exec_scheduler.testscheduler.html#currenttimemillis" class="tsd-kind-icon">current<wbr>Time<wbr>Millis</a>
@@ -992,6 +974,22 @@ img { max-width: 100%; }
 				</div>
 				<p>Example:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> s = <span class="hljs-keyword">new</span> TestScheduler()
+
+s.execute(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello, world!"</span>) })
+
+<span class="hljs-comment">// Triggers actual execution</span>
+s.tick()
+
+<span class="hljs-comment">// Simulating delayed execution</span>
+<span class="hljs-keyword">const</span> task = s.scheduleOnce(Duration.seconds(<span class="hljs-number">10</span>), <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello, delayed!"</span>)
+})
+
+<span class="hljs-comment">// We can cancel a delayed task if we want</span>
+task.cancel()
+
+<span class="hljs-comment">// Or we can execute it by moving the internal clock forward in time</span>
+s.tick(Duration.seconds(<span class="hljs-number">10</span>))
 </code></pre>
 			</div>
 		</section>
@@ -1018,21 +1016,15 @@ img { max-width: 100%; }
 							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="exec_scheduler.testscheduler.html#constructor" class="tsd-kind-icon">constructor</a></li>
 						</ul>
 					</section>
-					<section class="tsd-index-section ">
+					<section class="tsd-index-section tsd-is-inherited">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="exec_scheduler.testscheduler.html#_clock" class="tsd-kind-icon">_clock</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="exec_scheduler.testscheduler.html#_reporter" class="tsd-kind-icon">_reporter</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="exec_scheduler.testscheduler.html#_tasks" class="tsd-kind-icon">_tasks</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="exec_scheduler.testscheduler.html#_taskssearch" class="tsd-kind-icon">_tasks<wbr>Search</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="exec_scheduler.testscheduler.html#_triggeredfailures" class="tsd-kind-icon">_triggered<wbr>Failures</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="exec_scheduler.testscheduler.html#executionmodel" class="tsd-kind-icon">execution<wbr>Model</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="exec_scheduler.testscheduler.html#_updatetasks" class="tsd-kind-icon">_update<wbr>Tasks</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="exec_scheduler.testscheduler.html#currenttimemillis" class="tsd-kind-icon">current<wbr>Time<wbr>Millis</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="exec_scheduler.testscheduler.html#execute" class="tsd-kind-icon">execute</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="exec_scheduler.testscheduler.html#hastasksleft" class="tsd-kind-icon">has<wbr>Tasks<wbr>Left</a></li>
@@ -1062,7 +1054,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L437">exec/scheduler.ts:437</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L455">exec/scheduler.ts:455</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1079,100 +1071,8 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 		</section>
-		<section class="tsd-panel-group tsd-member-group ">
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 			<h2>Properties</h2>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="_clock" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> _clock</h3>
-				<div class="tsd-signature tsd-kind-icon">_clock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L434">exec/scheduler.ts:434</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="_reporter" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> _reporter</h3>
-				<div class="tsd-signature tsd-kind-icon">_reporter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L433">exec/scheduler.ts:433</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>error: <span class="tsd-signature-type">any</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="_tasks" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> _tasks</h3>
-				<div class="tsd-signature tsd-kind-icon">_tasks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L436">exec/scheduler.ts:436</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="_taskssearch" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> _tasks<wbr>Search</h3>
-				<div class="tsd-signature tsd-kind-icon">_tasks<wbr>Search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L437">exec/scheduler.ts:437</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>search<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>search: <span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-				<a name="_triggeredfailures" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> _triggered<wbr>Failures</h3>
-				<div class="tsd-signature tsd-kind-icon">_triggered<wbr>Failures<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L435">exec/scheduler.ts:435</a></li>
-					</ul>
-				</aside>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 				<a name="executionmodel" class="tsd-anchor"></a>
 				<h3>execution<wbr>Model</h3>
@@ -1180,7 +1080,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#executionmodel">executionModel</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L218">exec/scheduler.ts:218</a></li>
+						<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L218">exec/scheduler.ts:218</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1194,35 +1094,6 @@ img { max-width: 100%; }
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-				<a name="_updatetasks" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> _update<wbr>Tasks</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<li class="tsd-signature tsd-kind-icon">_update<wbr>Tasks<span class="tsd-signature-symbol">(</span>tasks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L571">exec/scheduler.ts:571</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<dl class="tsd-comment-tags">
-								<dt>inheritdoc</dt>
-								<dd></dd>
-							</dl>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>tasks: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 				<a name="currenttimemillis" class="tsd-anchor"></a>
 				<h3>current<wbr>Time<wbr>Millis</h3>
@@ -1234,7 +1105,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#currenttimemillis">currentTimeMillis</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L471">exec/scheduler.ts:471</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L489">exec/scheduler.ts:489</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1258,7 +1129,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#execute">execute</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L460">exec/scheduler.ts:460</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L478">exec/scheduler.ts:478</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1299,7 +1170,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L457">exec/scheduler.ts:457</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L475">exec/scheduler.ts:475</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1323,7 +1194,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#reportfailure">reportFailure</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L465">exec/scheduler.ts:465</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L483">exec/scheduler.ts:483</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1353,7 +1224,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#scheduleatfixedrate">scheduleAtFixedRate</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L194">exec/scheduler.ts:194</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L194">exec/scheduler.ts:194</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1429,7 +1300,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#scheduleonce">scheduleOnce</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L476">exec/scheduler.ts:476</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L494">exec/scheduler.ts:494</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1474,7 +1345,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#schedulewithfixeddelay">scheduleWithFixedDelay</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L152">exec/scheduler.ts:152</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L152">exec/scheduler.ts:152</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1545,7 +1416,7 @@ task.cancel()
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L525">exec/scheduler.ts:525</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L543">exec/scheduler.ts:543</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1601,7 +1472,7 @@ s.tick(Duration.seconds(<span class="hljs-number">1</span>))
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L451">exec/scheduler.ts:451</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L469">exec/scheduler.ts:469</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1625,7 +1496,7 @@ s.tick(Duration.seconds(<span class="hljs-number">1</span>))
 						<aside class="tsd-sources">
 							<p>Overrides <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#withexecutionmodel">withExecutionModel</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L564">exec/scheduler.ts:564</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L582">exec/scheduler.ts:582</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1655,7 +1526,7 @@ s.tick(Duration.seconds(<span class="hljs-number">1</span>))
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="exec_scheduler.scheduler.html">Scheduler</a>.<a href="exec_scheduler.scheduler.html#global">global</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/funfix/funfix/blob/81e5e1c/src/exec/scheduler.ts#L252">exec/scheduler.ts:252</a></li>
+								<li>Defined in <a href="https://github.com/funfix/funfix/blob/5e98bcd/src/exec/scheduler.ts#L252">exec/scheduler.ts:252</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
