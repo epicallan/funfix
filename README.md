@@ -44,7 +44,9 @@ Low-level data types and utilities:
 - [TimeUnit and Duration](https://funfix.org/api/modules/exec_time.html) for
   expressing timespans, along operations and conversions between time units
 - [Scheduler](https://funfix.org/api/classes/exec_scheduler.scheduler.html) for
-  expressing timespans, along operations and conversions between time units
+  executing units of work asynchronously, with a delay or periodically
+  (also see [TestScheduler](https://funfix.org/api/classes/exec_scheduler.testscheduler.html)
+  for simulating async execution and delays in tests)
 
 More is coming (e.g. `Task`, etc)
 
