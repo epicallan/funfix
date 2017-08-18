@@ -916,6 +916,9 @@ img { max-width: 100%; }
 			<a href="../classes/_types_instances_.evalinstances.html" class="tsd-kind-icon">Eval<wbr>Instances</a>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="../classes/_types_instances_.futureinstances.html" class="tsd-kind-icon">Future<wbr>Instances</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_types_instances_.optioninstances.html" class="tsd-kind-icon">Option<wbr>Instances</a>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
@@ -926,6 +929,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 			<a href="_types_instances_.html#evalk" class="tsd-kind-icon">EvalK</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="_types_instances_.html#futurek" class="tsd-kind-icon">FutureK</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 			<a href="_types_instances_.html#optionk" class="tsd-kind-icon">OptionK</a>
@@ -967,6 +973,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/_types_instances_.eitherinstances.html" class="tsd-kind-icon">Either<wbr>Instances</a></li>
 							<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_types_instances_.evalinstances.html" class="tsd-kind-icon">Eval<wbr>Instances</a></li>
+							<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_types_instances_.futureinstances.html" class="tsd-kind-icon">Future<wbr>Instances</a></li>
 							<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_types_instances_.optioninstances.html" class="tsd-kind-icon">Option<wbr>Instances</a></li>
 							<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_types_instances_.tryinstances.html" class="tsd-kind-icon">Try<wbr>Instances</a></li>
 						</ul>
@@ -976,6 +983,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_instances_.html#eitherk" class="tsd-kind-icon">EitherK</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_instances_.html#evalk" class="tsd-kind-icon">EvalK</a></li>
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_instances_.html#futurek" class="tsd-kind-icon">FutureK</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_instances_.html#optionk" class="tsd-kind-icon">OptionK</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_instances_.html#tryk" class="tsd-kind-icon">TryK</a></li>
 						</ul>
@@ -991,7 +999,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">EitherK<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_kinds_.hk.html" class="tsd-signature-type">HK</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_core_disjunctions_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/bb5263d/src/types/instances.ts#L200">types/instances.ts:200</a></li>
+						<li>Defined in <a href="https://github.com/funfix/funfix/blob/358d895/src/types/instances.ts#L201">types/instances.ts:201</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1007,7 +1015,23 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">EvalK<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_kinds_.hk.html" class="tsd-signature-type">HK</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_effect_eval_.eval.html" class="tsd-signature-type">Eval</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/bb5263d/src/types/instances.ts#L270">types/instances.ts:270</a></li>
+						<li>Defined in <a href="https://github.com/funfix/funfix/blob/358d895/src/types/instances.ts#L271">types/instances.ts:271</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Alias used for encoding higher-kinded types when implementing
+						type class instances.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+				<a name="futurek" class="tsd-anchor"></a>
+				<h3>FutureK</h3>
+				<div class="tsd-signature tsd-kind-icon">FutureK<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_kinds_.hk.html" class="tsd-signature-type">HK</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_exec_future_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/funfix/funfix/blob/358d895/src/types/instances.ts#L340">types/instances.ts:340</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1023,7 +1047,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">OptionK<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_kinds_.hk.html" class="tsd-signature-type">HK</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_core_disjunctions_.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/bb5263d/src/types/instances.ts#L49">types/instances.ts:49</a></li>
+						<li>Defined in <a href="https://github.com/funfix/funfix/blob/358d895/src/types/instances.ts#L50">types/instances.ts:50</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1039,7 +1063,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">TryK<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_types_kinds_.hk.html" class="tsd-signature-type">HK</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_core_disjunctions_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/funfix/funfix/blob/bb5263d/src/types/instances.ts#L115">types/instances.ts:115</a></li>
+						<li>Defined in <a href="https://github.com/funfix/funfix/blob/358d895/src/types/instances.ts#L116">types/instances.ts:116</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
